@@ -33,6 +33,6 @@ describe('home page', () => {
             10000
         );
 
-        await expect(header.getText()).resolves.toBe('Hello DevOps');
+        await expect(header.getText()).resolves.toBe('Welcome to CI/CD');
     });
 });
