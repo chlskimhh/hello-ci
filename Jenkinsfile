@@ -30,4 +30,11 @@ sh 'npm test'
 }
 }
 }
+ 
+post {
+always {
+sh 'cat app.log || true'
+sh 'pkill -f node || true'
+}
+}
 }
