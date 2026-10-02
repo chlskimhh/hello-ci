@@ -1,11 +1,19 @@
-<h1>Hello DevOps</h1>
 const express = require('express');
+ 
 const app = express();
- 
-app.get('/', (req, res) => {
-res.send('<h1>Welcome to DevOps</h1>');
+ 
+app.get('/', (request, response) => {
+    response.send('<h1>Hello DevOps</h1>');
 });
- 
-app.listen(3000, () => {
-console.log('Server running on port 3000');
-});
+ 
+function startServer(port = process.env.PORT || 3000) {
+    return app.listen(port, () => {
+        console.log(`App listening on port ${port}`);
+    });
+}
+ 
+if (require.main === module) {
+    startServer();
+}
+ 
+module.exports = { app, startServer };
